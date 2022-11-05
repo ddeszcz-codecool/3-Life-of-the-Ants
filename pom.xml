@@ -55,7 +55,7 @@
                         <index>true</index>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.codecool.ants.Simulator</mainClass>
+                            <mainClass>Simulator</mainClass>
                         </manifest>
                         <manifestEntries>
                             <mode>development</mode>

@@ -1,4 +1,4 @@
-package com.codecool.ants.geometry;
+package Enums;
 
     public enum Direction {
         NORTH, EAST, SOUTH, WEST;

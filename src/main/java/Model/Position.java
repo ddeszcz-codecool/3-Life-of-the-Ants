@@ -1,4 +1,4 @@
-package com.codecool.ants.geometry;
+package Model;
 
 public class Position {
 

@@ -18,15 +18,15 @@ public class Colony {
     public Colony(int colonySize) {
         this.colonySize = colonySize;
         this.colony = new Position[colonySize][colonySize];
-        fillEmptySpaceInColony();
+        resetAllFieldsToEmpty();
     }
 
-    public void displayBoard(){
+    public void displayBoard() {
 
     }
 
     private void addQueen() {
-        int center = colonySize / 2 + 1;
+        int center = (colonySize / 2);
         AntCasts queen = new Queen(new Position(center, center, UnicodeRepresentation.QUEEN));
         this.antsList.add(queen);
     }
@@ -40,9 +40,9 @@ public class Colony {
             while (selectedPlaceIsOccupied) {
                 x = random.nextInt(colonySize);
                 y = random.nextInt(colonySize);
-                if (isThisPlaceFree(x,y)){
+                if (isThisPlaceFree(x, y)) {
                     selectedPlaceIsOccupied = false;
-                    AntCasts antCasts = new AntCasts(new Position(x,y, unicodeRepresentation));
+                    AntCasts antCasts = new AntCasts(new Position(x, y, unicodeRepresentation));
                     this.antsList.add(antCasts);
                 }
             }
@@ -50,34 +50,36 @@ public class Colony {
         }
     }
 
-    public void generateAnts(int workers, int drones, int soldiers){
+    public void generateAnts(int workers, int drones, int soldiers) {
         addQueen();
-        addAnts(5, UnicodeRepresentation.WORKER);
-        addAnts(3, UnicodeRepresentation.DRONE);
-        addAnts(7,UnicodeRepresentation.SOLDIER);
+        addAnts(workers, UnicodeRepresentation.WORKER);
+        addAnts(drones, UnicodeRepresentation.DRONE);
+        addAnts(soldiers, UnicodeRepresentation.SOLDIER);
     }
 
-    private boolean isThisPlaceFree(int x, int y){
-        if (colony[x][y].getUnicodeRepresentation() == UnicodeRepresentation.emptySPACE){
-            return true;
-        }
-        return false;
-    }
-
-    public void fillEmptySpaceInColony() {
-        for (int x = 0; x < colony.length; x++) {
-            for (int y = 0; y < colony.length; y++) {
-                    colony[x][y] = new Position(x, y, UnicodeRepresentation.emptySPACE);
+    private boolean isThisPlaceFree(int x, int y) {
+        for (AntCasts ant : antsList) {
+            if (ant.getPosition().getX() == x && ant.getPosition().getY() == y) {
+                return false;
             }
         }
+        return true;
     }
 
-    public Position[][] getColony() {
-        return colony;
+        public void resetAllFieldsToEmpty () {
+            for (int x = 0; x < colony.length; x++) {
+                for (int y = 0; y < colony.length; y++) {
+                    colony[x][y] = new Position(x, y, UnicodeRepresentation.emptySPACE);
+                }
+            }
+        }
 
-    }
+        public Position[][] getColony () {
+            return colony;
 
-    public List<AntCasts> getAntsList() {
-        return antsList;
+        }
+
+        public List<AntCasts> getAntsList () {
+            return antsList;
+        }
     }
-}

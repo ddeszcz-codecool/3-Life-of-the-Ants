@@ -13,9 +13,10 @@ public class Game {
     }
 
     public void start(){
-//        int colonySize = Input.askUserForColonySize();
-        createColony(10);
-        colony.generateAnts(1,1,1);
+        int colonySize = Input.askUserForColonySize();
+//        createColony(9);
+        createColony(colonySize);
+        colony.generateAnts(4,4,8);
         Display.board(colony);
 
     }

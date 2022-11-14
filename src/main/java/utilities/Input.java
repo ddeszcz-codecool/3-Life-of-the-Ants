@@ -14,9 +14,9 @@ public class Input {
         boolean invalidInput = true;
         int colonySize = 0;
         while (invalidInput) {
-            System.out.println("Please select the colony size: ");
+            System.out.println("\n\nPlease select the colony size from 1 to 19, only odd numbers are allowed: ");
             colonySize = scanner.nextInt();
-            if(isPatternMatch("^[0-9]{1}$|^[1][0-9]$|^[2][0]$",Integer.toString(colonySize))){
+            if(isPatternMatch("^[13579]{1}$|^[1][13579]$",Integer.toString(colonySize))){
                 invalidInput = false;
             }else{
                 System.out.println("Wrong input please try again");

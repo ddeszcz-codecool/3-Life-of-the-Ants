@@ -8,7 +8,7 @@ public enum UnicodeRepresentation {
     DRONE("\ud83e\udd35"),
     QUEEN("\ud83d\udc83"),
     emptySPACE(" "),
-    multipleANTS("\ud8ee\udd3c");
+    multipleANTS("\ud83d\ude98");
 
 
 

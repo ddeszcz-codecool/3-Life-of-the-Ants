@@ -30,6 +30,8 @@ public class AntCasts {
     Direction selectRandomDirection(){
         List<Direction> directionList = Arrays.asList(Direction.EAST, Direction.WEST, Direction.NORTH, Direction.SOUTH);
         Random random = new Random();
+//        Direction direction = directionList.get(random.nextInt(directionList.size()));
+//        return direction;
         return directionList.get(random.nextInt(directionList.size()));
     }
     int[] convertDirectionToCoordinates(int x, int y, Direction direction){

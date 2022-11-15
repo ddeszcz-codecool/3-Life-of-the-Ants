@@ -1,7 +1,7 @@
 package logic;
 
 import containers.Colony;
-import utilities.DisplayAnts;
+import utilities.DisplayBoard;
 
 public class Game {
 
@@ -15,7 +15,7 @@ public class Game {
         createColony(9);
 //        createColony(colonySize);
         colony.generateAnts(6,4,3);
-        DisplayAnts.board(colony);
+        DisplayBoard.print(colony);
     }
 
 

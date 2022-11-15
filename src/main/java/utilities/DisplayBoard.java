@@ -4,7 +4,7 @@ import containers.Colony;
 import containers.ants.AntCasts;
 import enums.UnicodeRepresentation;
 
-public class DisplayAnts {
+public class DisplayBoard {
     //ANSI codes
     private static final String FOREGROUND_BLACK = "\u001b[38;2;0;0;0m";
     private static final String FRAMED = "\u001b[51m";
@@ -29,7 +29,7 @@ public class DisplayAnts {
 
 
 
-    public static void board(Colony colony) {
+    public static void print(Colony colony) {
         checkForMultipleAntsOnSquare(colony);
         System.out.println(boardToString(colony));
         printKey(colony.getColony().length);
@@ -67,7 +67,7 @@ public class DisplayAnts {
             // numbers axis
             colonyToPrint.append(FOREGROUND_BLACK + FRAMED + BACKGROUND_GRAY + BOLD + s1_3_SIX_PER_EM_SPACE + (String.format("%2d", i + 1)) + s1_2_SIX_PER_EM_SPACE + RESET_ANSI + s0_ZERO_WIDTH_SPACE);
             for (int j = 0; j < colonyWidth; j++) {
-                // board squares
+                // print squares
                 if (colony.getColony()[i][j].getUnicodeRepresentation() == UnicodeRepresentation.emptySPACE) {
                     colonyToPrint.append(GRAY_SQUARE_BLACK_PERIMETER);
                 } else {

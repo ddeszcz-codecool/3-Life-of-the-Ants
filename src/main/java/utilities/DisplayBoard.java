@@ -3,6 +3,7 @@ package utilities;
 import containers.Colony;
 import containers.ants.AntCasts;
 import enums.UnicodeRepresentation;
+import model.Position;
 
 public class DisplayBoard {
 
@@ -37,7 +38,7 @@ public class DisplayBoard {
         printKey(colony.getColony().length);
     }
     private static void checkForMultipleAntsOnSquare(Colony colony) {
-        colony.resetAllFieldsToEmpty();
+        resetAllFieldsToEmpty(colony);
         for (AntCasts ant : colony.getAntsList()) {
             int x = ant.getPosition().getX();
             int y = ant.getPosition().getY();
@@ -92,6 +93,13 @@ public class DisplayBoard {
         key.append(String.format(spaceFormat, UnicodeRepresentation.multipleANTS.getUnicodeRepresentation()) + " - Multiple ants in one square - symbolised by multiple people" + "\n");
 
         System.out.println(key);
+    }
+    public static void resetAllFieldsToEmpty(Colony colony) {
+        for (int x = 0; x < colony.getColony().length; x++) {
+            for (int y = 0; y < colony.getColony().length; y++) {
+                colony.getColony()[x][y] = new Position(x, y, UnicodeRepresentation.emptySPACE);
+            }
+        }
     }
 
 

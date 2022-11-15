@@ -17,17 +17,32 @@ public class Colony {
     public Colony(int colonySize) {
         this.colonySize = colonySize;
         this.colony = new Position[colonySize][colonySize];
-        resetAllFieldsToEmpty();
     }
 
 
 
+
+
+
+
+    public void generateAnts(int workers, int drones, int soldiers) {
+        addQueen();
+        addAnts(workers, UnicodeRepresentation.WORKER);
+        addAnts(drones, UnicodeRepresentation.DRONE);
+        addAnts(soldiers, UnicodeRepresentation.SOLDIER);
+    }
+    public Position[][] getColony() {
+        return colony;
+
+    }
+    public List<AntCasts> getAntsList() {
+        return antsList;
+    }
     private void addQueen() {
         int center = (colonySize / 2);
         AntCasts queen = new Queen(new Position(center, center, UnicodeRepresentation.QUEEN));
         this.antsList.add(queen);
     }
-
     private void addAnts(int ants, UnicodeRepresentation unicodeRepresentation) {
         Random random = new Random();
         int x;
@@ -61,14 +76,6 @@ public class Colony {
             selectedPlaceIsOccupied = true;
         }
     }
-
-    public void generateAnts(int workers, int drones, int soldiers) {
-        addQueen();
-        addAnts(workers, UnicodeRepresentation.WORKER);
-        addAnts(drones, UnicodeRepresentation.DRONE);
-        addAnts(soldiers, UnicodeRepresentation.SOLDIER);
-    }
-
     private boolean isThisPlaceFree(int x, int y) {
         for (AntCasts ant : antsList) {
             if (ant.getPosition().getX() == x && ant.getPosition().getY() == y) {
@@ -79,20 +86,7 @@ public class Colony {
         return true;
     }
 
-    public void resetAllFieldsToEmpty() {
-        for (int x = 0; x < colony.length; x++) {
-            for (int y = 0; y < colony.length; y++) {
-                colony[x][y] = new Position(x, y, UnicodeRepresentation.emptySPACE);
-            }
-        }
-    }
 
-    public Position[][] getColony() {
-        return colony;
 
-    }
 
-    public List<AntCasts> getAntsList() {
-        return antsList;
-    }
 }

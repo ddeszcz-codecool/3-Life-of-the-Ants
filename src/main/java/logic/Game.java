@@ -15,14 +15,14 @@ public class Game {
 
     public void start() {
 //        int colonySize = Input.askUserForColonySize();
-        int colonySize = 9;
+        int colonySize = 19;
         createColony(colonySize);
-        colony.generateAnts(20, 0, 50);
+        colony.generateAnts(0, 1,0 );
 
         DisplayBoard.print(colony);
 
         int repeat = 0;
-        while (repeat < 10) {
+        while (repeat < 40) {
 //            for (AntCasts ant:colony.getAntsList()) {
 //                System.out.println("x- " + ant.getPosition().getX() + ", y- " + ant.getPosition().getY()+ " antType: " + ant.getPosition().getUnicodeRepresentation());
 //

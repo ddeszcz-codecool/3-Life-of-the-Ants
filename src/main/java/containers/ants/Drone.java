@@ -1,5 +1,6 @@
 package containers.ants;
 
+import enums.Direction;
 import model.Position;
 
 public class Drone extends AntCasts {
@@ -9,8 +10,24 @@ public class Drone extends AntCasts {
     }
 
 
-    public void move(int colonySize){
-        //if < than middle move towards middle
-        //for other ensure you are not outside the screen
+    @Override
+    public void move(int boardSize) {
+        int coordinateX = setCoordinate(boardSize, getPosition().getX());
+        int coordinateY = setCoordinate(boardSize, getPosition().getY());
+        getPosition().setX(coordinateX);
+        getPosition().setY(coordinateY);
+    }
+
+    private int setCoordinate(int boardSize, int currentPosition){
+        int middle = boardSize/2;
+        int newPosition;
+        if (currentPosition < middle -1){
+            newPosition = currentPosition +1;
+        }else if (currentPosition > middle +1){
+            newPosition = currentPosition -1;
+        }else {
+            newPosition = currentPosition;
+        }
+        return  newPosition;
     }
 }

@@ -9,4 +9,6 @@ public class Soldier extends AntCasts {
     public Soldier(Position position) {
         super(position);
     }
+
+
 }

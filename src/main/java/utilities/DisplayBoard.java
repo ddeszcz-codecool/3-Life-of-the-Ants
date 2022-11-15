@@ -5,6 +5,8 @@ import containers.ants.AntCasts;
 import enums.UnicodeRepresentation;
 
 public class DisplayBoard {
+
+    //TODO should not this class be converted to an object? What is the advantage of that?
     //ANSI codes
     private static final String FOREGROUND_BLACK = "\u001b[38;2;0;0;0m";
     private static final String FRAMED = "\u001b[51m";

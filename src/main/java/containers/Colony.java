@@ -12,7 +12,7 @@ public class Colony {
     private final Position[][] colony;
     private final List<AntCasts> antsList = new ArrayList<>();
     private final int colonySize;
-    private final char[] alphabet20 = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'};
+
 
     public Colony(int colonySize) {
         this.colonySize = colonySize;
@@ -20,9 +20,7 @@ public class Colony {
         resetAllFieldsToEmpty();
     }
 
-    public void displayBoard() {
 
-    }
 
     private void addQueen() {
         int center = (colonySize / 2);
@@ -42,11 +40,20 @@ public class Colony {
                 if (isThisPlaceFree(x, y)) {
                     selectedPlaceIsOccupied = false;
                     AntCasts antCasts;
-                    switch (unicodeRepresentation){
-                        case WORKER:antCasts = new Worker(new Position(x, y, unicodeRepresentation)); break;
-                        case DRONE:antCasts = new Drone(new Position(x, y, unicodeRepresentation)); break;
-                        case SOLDIER:antCasts = new Soldier(new Position(x, y, unicodeRepresentation)); break;
-                        default: System.out.println("Error creating ants casts Colony.addAnts"); antCasts = new AntCasts((new Position(x, y, unicodeRepresentation))); break;
+                    switch (unicodeRepresentation) {
+                        case WORKER:
+                            antCasts = new Worker(new Position(x, y, unicodeRepresentation));
+                            break;
+                        case DRONE:
+                            antCasts = new Drone(new Position(x, y, unicodeRepresentation));
+                            break;
+                        case SOLDIER:
+                            antCasts = new Soldier(new Position(x, y, unicodeRepresentation));
+                            break;
+                        default:
+                            System.out.println("Error creating ants casts Colony.addAnts");
+                            antCasts = new AntCasts((new Position(x, y, unicodeRepresentation)));
+                            break;
                     }
                     this.antsList.add(antCasts);
                 }
@@ -72,20 +79,20 @@ public class Colony {
         return true;
     }
 
-        public void resetAllFieldsToEmpty () {
-            for (int x = 0; x < colony.length; x++) {
-                for (int y = 0; y < colony.length; y++) {
-                    colony[x][y] = new Position(x, y, UnicodeRepresentation.emptySPACE);
-                }
+    public void resetAllFieldsToEmpty() {
+        for (int x = 0; x < colony.length; x++) {
+            for (int y = 0; y < colony.length; y++) {
+                colony[x][y] = new Position(x, y, UnicodeRepresentation.emptySPACE);
             }
         }
-
-        public Position[][] getColony () {
-            return colony;
-
-        }
-
-        public List<AntCasts> getAntsList () {
-            return antsList;
-        }
     }
+
+    public Position[][] getColony() {
+        return colony;
+
+    }
+
+    public List<AntCasts> getAntsList() {
+        return antsList;
+    }
+}

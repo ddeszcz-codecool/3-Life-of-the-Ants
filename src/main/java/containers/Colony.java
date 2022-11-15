@@ -1,9 +1,8 @@
 package containers;
 
+import containers.ants.*;
 import enums.UnicodeRepresentation;
-import containers.ants.AntCasts;
 import model.Position;
-import containers.ants.Queen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +41,13 @@ public class Colony {
                 y = random.nextInt(colonySize);
                 if (isThisPlaceFree(x, y)) {
                     selectedPlaceIsOccupied = false;
-                    AntCasts antCasts = new AntCasts(new Position(x, y, unicodeRepresentation));
+                    AntCasts antCasts;
+                    switch (unicodeRepresentation){
+                        case WORKER:antCasts = new Worker(new Position(x, y, unicodeRepresentation)); break;
+                        case DRONE:antCasts = new Drone(new Position(x, y, unicodeRepresentation)); break;
+                        case SOLDIER:antCasts = new Soldier(new Position(x, y, unicodeRepresentation)); break;
+                        default: System.out.println("Error creating ants casts Colony.addAnts"); antCasts = new AntCasts((new Position(x, y, unicodeRepresentation))); break;
+                    }
                     this.antsList.add(antCasts);
                 }
             }
@@ -61,6 +66,7 @@ public class Colony {
         for (AntCasts ant : antsList) {
             if (ant.getPosition().getX() == x && ant.getPosition().getY() == y) {
                 return false;
+//                return true;  // added for overlap check
             }
         }
         return true;

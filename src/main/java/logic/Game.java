@@ -1,24 +1,21 @@
 package logic;
 
 import containers.Colony;
-import utilities.Display;
-import utilities.Input;
+import utilities.DisplayAnts;
 
 public class Game {
 
     private Colony colony;
 
     public Game() {
-
     }
 
     public void start(){
-        int colonySize = Input.askUserForColonySize();
-//        createColony(9);
-        createColony(colonySize);
-        colony.generateAnts(4,4,8);
-        Display.board(colony);
-
+//        int colonySize = Input.askUserForColonySize();
+        createColony(9);
+//        createColony(colonySize);
+        colony.generateAnts(6,4,3);
+        DisplayAnts.board(colony);
     }
 
 

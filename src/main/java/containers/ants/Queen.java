@@ -12,7 +12,7 @@ public class Queen extends AntCasts {
 
     public Queen(Position position) {
         super( position);
-
+        reSetMatingMood();
     }
 
 
@@ -35,6 +35,7 @@ public class Queen extends AntCasts {
     }
     private void reSetMatingMood() {
         Random random = new Random();
+//        this.matingMood = random.nextInt(2);
         this.matingMood = random.nextInt(49)+51;
     }
 }

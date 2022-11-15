@@ -17,7 +17,7 @@ public class Game {
 //        int colonySize = Input.askUserForColonySize();
         int colonySize = 19;
         createColony(colonySize);
-        colony.generateAnts(0, 1,0 );
+        colony.generateAnts(0, 100,0 );
 
         DisplayBoard.print(colony);
 
@@ -27,7 +27,7 @@ public class Game {
 //                System.out.println("x- " + ant.getPosition().getX() + ", y- " + ant.getPosition().getY()+ " antType: " + ant.getPosition().getUnicodeRepresentation());
 //
 //            }
-            System.out.println("--------------------" + repeat);
+            System.out.println("-------------------- Round number: " + repeat);
             colonyLogic.update(colonySize, colony.getAntsList());
             DisplayBoard.print(colony);
             repeat++;

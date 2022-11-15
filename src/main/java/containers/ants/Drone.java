@@ -4,30 +4,57 @@ import enums.Direction;
 import model.Position;
 
 public class Drone extends AntCasts {
+    private int loveMakingWithQueen;
 
     public Drone(Position position) {
         super(position);
+        this.loveMakingWithQueen = 10;
     }
 
 
     @Override
     public void move(int boardSize) {
-        int coordinateX = setCoordinate(boardSize, getPosition().getX());
-        int coordinateY = setCoordinate(boardSize, getPosition().getY());
-        getPosition().setX(coordinateX);
-        getPosition().setY(coordinateY);
+        if (loveMakingWithQueen <= 10) {
+            timeLoveMakingWithQueen();
+        } else {
+            int coordinateX = setCoordinate(boardSize, getPosition().getX());
+            int coordinateY = setCoordinate(boardSize, getPosition().getY());
+            System.out.println("x " + coordinateX + ". y " + coordinateY);
+            if (coordinateX == getPosition().getX() && coordinateY == getPosition().getY()) {
+                System.out.println("------   identical ------");
+                setIsAntNextToQueen(true);
+
+            }
+            getPosition().setX(coordinateX);
+            getPosition().setY(coordinateY);
+
+        }
     }
 
-    private int setCoordinate(int boardSize, int currentPosition){
-        int middle = boardSize/2;
+    public int getLoveMakingWithQueen() {
+        return loveMakingWithQueen;
+    }
+
+    public void setLoveMakingWithQueen(int loveMakingWithQueen) {
+        this.loveMakingWithQueen = loveMakingWithQueen;
+    }
+
+    private void timeLoveMakingWithQueen() {
+        this.loveMakingWithQueen = loveMakingWithQueen + 1;
+    }
+
+    private int setCoordinate(int boardSize, int currentPosition) {
+        int middle = boardSize / 2;
         int newPosition;
-        if (currentPosition < middle -1){
-            newPosition = currentPosition +1;
-        }else if (currentPosition > middle +1){
-            newPosition = currentPosition -1;
-        }else {
+        if (currentPosition < middle - 1) {
+            newPosition = currentPosition + 1;
+        } else if (currentPosition > middle + 1) {
+            newPosition = currentPosition - 1;
+        } else {
             newPosition = currentPosition;
         }
-        return  newPosition;
+        return newPosition;
     }
+
+
 }

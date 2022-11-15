@@ -9,6 +9,8 @@ import java.util.Random;
 
 public class AntCasts {
 
+    private boolean isAntNextToQueen;
+
 
     private Position position;
 
@@ -18,6 +20,7 @@ public class AntCasts {
 
     public AntCasts(Position position) {
         this.position = position;
+        this.isAntNextToQueen = false;
     }
 
 
@@ -51,4 +54,28 @@ public class AntCasts {
         return x && y;
     }
 
+    public boolean getIsAntNextToQueen() {
+        return isAntNextToQueen;
+    }
+
+    public void setIsAntNextToQueen(boolean antNextToQueen) {
+        isAntNextToQueen = antNextToQueen;
+    }
+
+    public void setCoordinatesToTheBoardEdge(int boardSize){
+        Random random=new Random();
+        int randomBoardWall = random.nextInt(4);
+        switch (randomBoardWall){
+            case 0: setCoordinates(0,random.nextInt(boardSize));break;
+            case 1: setCoordinates(boardSize-1,random.nextInt(boardSize));break;
+            case 2: setCoordinates(random.nextInt(boardSize),0);break;
+            case 3: setCoordinates(random.nextInt(boardSize),boardSize -1);break;
+        }
+
+    }
+
+    private void setCoordinates(int x, int y){
+        getPosition().setX(x);
+        getPosition().setY(y);
+    }
 }

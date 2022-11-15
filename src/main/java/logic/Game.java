@@ -3,6 +3,7 @@ package logic;
 import containers.Colony;
 import containers.ants.AntCasts;
 import utilities.DisplayBoard;
+import utilities.Input;
 
 public class Game {
 
@@ -14,10 +15,10 @@ public class Game {
     }
 
     public void start() {
-//        int colonySize = Input.askUserForColonySize();
-        int colonySize = 19;
+        int colonySize = Input.askUserForColonySize();
+//        int colonySize = 19;
         createColony(colonySize);
-        colony.generateAnts(1, 1,1 );
+        colony.generateAnts(5, 5,5 );
 
         DisplayBoard.print(colony);
 

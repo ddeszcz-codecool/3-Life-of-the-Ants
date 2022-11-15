@@ -1,5 +1,6 @@
 package containers.ants;
 
+import enums.Direction;
 import model.Position;
 import containers.ants.AntCasts;
 
@@ -7,11 +8,18 @@ import java.util.Random;
 
 public class Queen extends AntCasts {
     private int matingMood;
-    private Random random;
+
+
     public Queen(Position position) {
         super( position);
-        this.random = new Random();
-        this.matingMood = random.nextInt(51,100);
+
+    }
+
+
+    @Override
+    public void move(int boardSize) {
+        System.out.println(matingMood);
+        lowerMatingMoodByOne();
     }
 
     public int getMatingMood() {
@@ -26,6 +34,7 @@ public class Queen extends AntCasts {
         }
     }
     private void reSetMatingMood() {
-        this.matingMood = random.nextInt(51,100);
+        Random random = new Random();
+        this.matingMood = random.nextInt(49)+51;
     }
 }

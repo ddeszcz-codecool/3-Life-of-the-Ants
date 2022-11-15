@@ -37,10 +37,10 @@ public class AntCasts {
     int[] convertDirectionToCoordinates(int x, int y, Direction direction){
         int[] coordinates = new int[2];
         switch (direction){
-            case EAST: coordinates[0]=x+1; coordinates[1]=y; break;
-            case WEST: coordinates[0]=x-1; coordinates[1]=y; break;
-            case NORTH: coordinates[0]=x; coordinates[1]=y-1; break;
-            case SOUTH: coordinates[0]=x; coordinates[1]=y+1; break;
+            case EAST: coordinates[0]=x; coordinates[1]=y+1; break;
+            case WEST: coordinates[0]=x; coordinates[1]=y-1; break;
+            case NORTH: coordinates[0]=x-1; coordinates[1]=y; break;
+            case SOUTH: coordinates[0]=x+1; coordinates[1]=y; break;
         }
         return coordinates;
     }

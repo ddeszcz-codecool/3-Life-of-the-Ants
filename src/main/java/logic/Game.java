@@ -17,7 +17,7 @@ public class Game {
 //        int colonySize = Input.askUserForColonySize();
         int colonySize = 9;
         createColony(colonySize);
-        colony.generateAnts(80, 0, 0);
+        colony.generateAnts(20, 0, 50);
 
         DisplayBoard.print(colony);
 

@@ -18,7 +18,6 @@ public class Queen extends AntCasts {
 
     @Override
     public void move(int boardSize) {
-        System.out.println(matingMood);
         lowerMatingMoodByOne();
     }
 
@@ -35,7 +34,7 @@ public class Queen extends AntCasts {
     }
     private void reSetMatingMood() {
         Random random = new Random();
-//        this.matingMood = random.nextInt(2);
+//        this.matingMood = random.nextInt(5);
         this.matingMood = random.nextInt(49)+51;
     }
 }

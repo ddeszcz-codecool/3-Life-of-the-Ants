@@ -30,7 +30,7 @@ public class ColonyLogic {
                 }
             }
         }
-        seeBoardBetweenToursForThisNumberOfSeconds(0);
+        seeBoardBetweenToursForThisNumberOfSeconds(2);
     }
 
 

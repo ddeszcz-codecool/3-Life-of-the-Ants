@@ -19,9 +19,7 @@ public class Drone extends AntCasts {
         } else {
             int coordinateX = setCoordinate(boardSize, getPosition().getX());
             int coordinateY = setCoordinate(boardSize, getPosition().getY());
-            System.out.println("x " + coordinateX + ". y " + coordinateY);
             if (coordinateX == getPosition().getX() && coordinateY == getPosition().getY()) {
-                System.out.println("------   identical ------");
                 setIsAntNextToQueen(true);
 
             }
